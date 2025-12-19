@@ -1,0 +1,4 @@
+{
+    "command": "npm install --legacy-peer-deps && npm run build",
+    "working_directory": "/home/kavia/workspace/code-generation/voiceassist-pro-225512-225522/admin_dashboard_frontend"
+}
