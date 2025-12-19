@@ -19,6 +19,23 @@ You can override at runtime by injecting global variables (before app-root):
 </script>
 ```
 
+If you are on a preview environment, set the host accordingly:
+- Example: BACKEND_URL=https://<preview-host>:3001
+- Example: WS_URL=wss://<preview-host>:3001/ws/events
+
+## Validations / E2E smoke
+- Home page performs health check against GET {BACKEND_URL}/health every 15s
+- Home page loads a minimal seeded calls list from GET {BACKEND_URL}/calls?limit=10 (if endpoint exists)
+- Live Calls page connects to WebSocket at {WS_URL} and will show live rows if backend emits events.
+  - If WS connection fails, a mock generator produces demo events so the UI still demonstrates behavior.
+
+## CORS / WebSocket notes
+- If you encounter CORS errors on REST:
+  - Ensure backend allows origin http://localhost:3000 and any preview domain used by this frontend.
+- If WS fails to connect because of origin:
+  - Ensure backend WS server accepts the Origin header from http://localhost:3000 and preview hosts.
+  - If using TLS on preview, prefer wss:// scheme in WS_URL.
+
 ## Development server
 To start a local development server, run:
 ```bash
