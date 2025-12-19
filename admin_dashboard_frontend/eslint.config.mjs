@@ -27,6 +27,12 @@ export default [
         expect: "readonly",
         // Browser globals
         HTMLElement: "readonly",
+        window: "readonly",
+        fetch: "readonly",
+        WebSocket: "readonly",
+        setTimeout: "readonly",
+        setInterval: "readonly",
+        RequestInit: "readonly",
         // Node.js globals
         process: "readonly",
         console: "readonly"

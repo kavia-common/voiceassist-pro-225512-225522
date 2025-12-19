@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
+import { ShellComponent } from './layout/shell.component';
 
 @Component({
   selector: 'app-root',
-  imports: [],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  standalone: true,
+  imports: [ShellComponent],
+  template: `<app-shell></app-shell>`,
+  styles: [``]
 })
-export class AppComponent {
-  title = 'admin_dashboard_frontend is being generated';
-}
+export class AppComponent {}
